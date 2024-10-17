@@ -25,6 +25,7 @@ body {
   background-repeat: no-repeat;
   background-position: top center;
   background-size: cover;
+  height: 100vh;
 }
 body * {
   font-family: "Inter", sans-serif;
@@ -72,11 +73,18 @@ body * {
   top: 50%;
   left: 0;
   transform: translateY(-50%);
+
+  animation: slide-back 0.4s forwards;
 }
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-in 0.4s forwards;
 }
+
+#switch button:hover{
+outline: 8px solid var(--social-icons-hover);
+
+}
+
 #switch span {
   display: block;
   width: 64px;
@@ -138,4 +146,32 @@ ul li a:hover {
 footer {
   pad: 24px 0;
   text-align: center;
+}
+
+@media (min-width: 700px) {
+  :root {
+    --bg-url: url(./assets/bg-desktop.jpg);
+  }
+  .light {
+    --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back{
+
+  from{
+    left: 50%;
+  }
+  to{
+    left: 0;
+  }
 }
